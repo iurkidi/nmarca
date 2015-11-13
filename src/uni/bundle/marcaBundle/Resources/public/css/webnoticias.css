@@ -1,0 +1,358 @@
+/* HOJA ESTILOS PRACTICA*/
+
+/* R E S E T*/
+	
+ol, ul{
+    list-style: none;
+}
+
+a img{
+    border:none; 
+} 
+
+
+/* CABECERA - BODY */
+
+html,body{
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   width: 100%; 
+   height: 100%;
+   /*scroll: no;*/
+}
+
+body{	
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /*background-color: #F2F2F2;*/
+    background-color:#8C1B17;
+    color: #000000;
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+    font-size: 10pt;
+    font-weight: normal;
+    border-color: #000000;
+}
+
+#cabecera{	
+    position: relative;	
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 15%;
+    overflow: auto;
+    display: block;
+    background-color: #FFFFFF;
+    color: #D21300;
+}
+
+#pie{	
+    position: relative;	
+    margin:0;
+    padding: 0;
+    width: 100%;	
+    height: 7%;
+    overflow: auto;
+    display: block;
+    background-color: #FFFFFF;
+    color: #D21300;
+}
+
+#contenFormularios{
+    position: relative;
+    padding: 0;
+    margin: 0;    
+    width: 100%;
+    /*height: 78%;*/
+    overflow: auto;
+    display: block;
+    background-color: #9F9F9F;
+}
+
+#central{
+    position: relative;    
+    padding: 0;
+    margin: 0;	 
+    width: 100%;
+    /*height: 100%;*/
+/*    background-color: #FFAA24;*/
+    background-color: #82807F; 
+    color: #930D00;
+    display: block;
+    overflow: auto;
+}
+
+/* ESTILOS MENU
+******************/
+#menuSup{	
+    margin:0;
+    padding: 0;    
+    position: relative;
+    width: 100%;
+    /*height: 5%;*/
+    overflow: auto;
+    display: block;
+    background-color: #930D00;
+    color: #FFFFFF;
+}
+
+#menu-horizontal {
+    /*width:100%;*/
+    margin:0 650px;/*500*/
+}
+
+ul#menu-horizontal li {
+    float: left;
+    display: inline;
+    position: relative;
+}
+
+ul#menu-horizontal ul {
+    display: none;
+    position: relative;
+    top: 24;
+    left:0;
+    margin:0;
+    padding:0;
+    background:#FFFFFF;
+}
+
+ul#menu-horizontal ul li {
+    display: block !important;
+    /*z-index: 0;*/
+}
+
+ul#menu-horizontal li:hover ul{
+    display: none;
+}
+
+ul#menu-horizontal li:hover ul{
+    display: block;
+    /*z-index: 0;*/
+}
+
+#menu-horizontal li {
+    margin:0 1px;
+    width:98px;
+    min-height:19px;
+    text-align:center;
+    background:#D21300;
+    list-style:none;
+    padding:2px 0;
+}
+
+#menu-horizontal li:hover {
+    background:#BBBBBB;
+}
+
+#menu-horizontal li a {
+    font:bold 11px Arial, Helvetica, sans-serif;
+    color:#FFF;
+    text-decoration:none;
+}
+
+#menu-horizontal li ul li{
+    float:none;
+    width:98px;
+    margin:1px 0;
+}
+
+/* FIN ESTILOS MENU
+******************/
+
+/* COLUMNAS*/
+.col1{
+    background-color: #F2F2F2;
+    position: relative;
+    float:left;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    margin-left: 500px;/*350*/
+}
+
+.col2{
+    background-color: #F2F2F2;
+    position: relative;
+    float:left;
+    clear:right;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    margin-right: 250px;
+    margin-bottom: 0;
+    padding: 0;
+}
+.col3{
+    background-color: #F2F2F2;
+    position: relative;
+    float:left;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    clear: both;
+    margin-left: 500px;/*350*/
+} 
+.col4{
+    background-color: #F2F2F2;
+    position: relative;
+    float:left;
+    clear:right;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    margin-right: 250px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.detalleNot{
+    background-color: #F2F2F2;
+    position: relative;
+    /*float:left;
+    clear:right;*/
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    display: block;
+    margin-left: 500px;
+    margin-bottom: 0;
+    padding: 0;
+}
+/* FIN COLUMNAS*/
+
+/* ESTILOS ANCHOS Y ALTOS */
+
+.ancho10por{ width: 10%;}
+.ancho30por{ width: 30%;}
+.ancho70por{ width: 70%;}
+
+.alto10por{ height: 10%;}
+.alto100por{ height: 100%;}
+
+/* RESTO */
+h1, h2, h3, h5, h5, h6{
+    font-weight:bold;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    color:#930D00 !important;
+}
+
+a:link, a:visited{
+    color: #000; 
+    text-decoration: underline; 
+}
+
+a:hover{
+    color: #D21300;
+}
+
+a:active{
+    color: #000;
+    text-decoration: underline; 
+}
+
+label {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    color: #333333;
+    text-decoration: none;
+    text-align: left;
+    background-color: #F2F2F2;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    height: 15px;
+    width: 140px;
+    clear: none;
+    float: left;
+}
+
+.centrado{
+    align: center;
+}
+
+.cursiva{
+    font-style: italic;
+}
+
+.derecha{
+    float:right;
+}
+.izquierda{
+    float:left;
+}
+
+.letralogo{
+    font-family: Times New Roman !important;
+    font-weight:bold;
+    font-size: 30pt;
+}
+
+.LineaFormulario{
+    margin: 2px 0px;
+    padding: 0px;
+    clear: both;
+    float: left;
+    width: 98%;
+    border: 0px none;	
+}
+
+.LineaFormulario div{
+    float:left;
+    clear:none;	
+}
+
+.LineaFormulario p{
+    color:#000000;
+    font-size:15px;
+    text-align: justify;
+    margin:0.5em 1.5em 0.3em 1.5em;
+}
+
+
+.listasindisco{
+    list-style-type:none;
+}
+
+.listadisco{
+    list-style-type:disc;
+}
+
+.negrita{
+    font-weight: bold;
+}
+
+.textoblanco{
+    color: #FFFFFF;
+}
+
+.textocentrado{
+    text-align: center;	
+}
+
+.textoizq{
+    text-align: left;	
+}
+
+.textojustificado{
+    text-align: justify;
+}
+
+.separarAbajo15{margin-bottom:15px;}
+.separarAbajo20{margin-bottom:20px;}
+
+.separarDcha15{margin-right:15px;}
+.separarDcha20{margin-right:20px;}
+
+.separarIzq15{margin-left:15px;}
+.separarIzq20{margin-left:20px;}
+.separarIzq100{margin-left:100px;}
+.separarIzq175{margin-left:175px;}
+.separarIzq200{margin-left:200px;}
+.separarIzq250{margin-left:250px;}
+.separarIzq350{margin-left:400px;}

@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+
+ {% block cuerpo %}
+ 
+        <div id="menuSup">
+            {% block menuSup %}
+                
+             <ul id="menu-horizontal">
+                <li><a href="#" title="Texto">Futbol</a></li>
+                <li><a href="#" title="Texto">Motor</a></li>
+                <li><a href="#" title="Texto">Tenis</a>
+                    <ul>
+                        <li><a href="#" title="Texto">Muguruza</a></li>
+                        <li><a href="#" title="Texto">Williams</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Texto">Baloncesto</a></li>
+                {#<li><a href="{{path('uni_web_noticias_about')}}" title="Texto">ABOUT</a></li>#}
+                <li><a href="#" title="Texto">Herri kirolak</a></li>
+             </ul>
+             
+            {% endblock %}
+        </div>
+ 
+        
+        <div id="central">
+            
+            {% block central %}
+            
+            {% endblock %}
+            
+        </div>
+ 
+ 
+ {% endblock %}

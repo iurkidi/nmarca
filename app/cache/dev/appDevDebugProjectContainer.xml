@@ -586,6 +586,9 @@
     </parameter>
   </parameters>
   <services>
+    <service id="twig.extension.text" class="Twig_Extensions_Extension_Text">
+      <tag name="twig.extension"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -2022,6 +2025,9 @@
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.text"/>
+      </call>
       <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension" public="false">

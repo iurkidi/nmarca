@@ -7,16 +7,16 @@ class __TwigTemplate_139192dcaa428baf98dca596bc394a2d57d29eeb4257fcf0ea0f78dfe26
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("uniMarcaBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'central' => array($this, 'block_central'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "uniMarcaBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -25,80 +25,53 @@ class __TwigTemplate_139192dcaa428baf98dca596bc394a2d57d29eeb4257fcf0ea0f78dfe26
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>noticias</h1>
+        echo " 
+    <div class=\"detalleNot\">
+        <div class=\"LineaFormulario\"></div>
 
-    <table class=\"record_properties\">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>";
-        // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Titulo</th>
-                <td>";
-        // line 14
+        <h1 class=\"centrado\">";
+        // line 8
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Contenido</th>
-                <td>";
-        // line 18
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "contenido"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Foto</th>
-                <td>";
-        // line 22
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "foto"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Autor</th>
-                <td>";
-        // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "autor"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Fechapub</th>
-                <td>";
-        // line 30
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fechaPub"), "Y-m-d H:i:s"), "html", null, true);
-        echo "</td>
-            </tr>
-        </tbody>
-    </table>
+        echo "</h1>
 
-        <ul class=\"record_actions\">
-    <li>
+        <div class=\"LineaFormulario\"></div>
+
+        <div class=\"LineaFormulario centrado\">
+            <img src=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/unimarca/img/" . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "foto")) . "")), "html", null, true);
+        echo "\" width=\"25%\" heigth=\"25%\"/>
+        </div>
+
+        <div class=\"LineaFormulario\">
+            <h3 class=\"izquierda separarIzq20\">";
+        // line 17
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "autor"), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fechaPub"), "Y/m/d"), "html", null, true);
+        echo "</h3>
+        </div>
+
+
+        <div class=\"LineaFormulario\">
+            <p>";
+        // line 22
+        echo nl2br($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "contenido"));
+        echo "</p>
+        </div>
+
+
+        <div class=\"LineaFormulario\"></div>
+        <div class=\"LineaFormulario\"></div>
+
         <a href=\"";
-        // line 37
+        // line 29
         echo $this->env->getExtension('routing')->getPath("noticias");
-        echo "\">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href=\"";
-        // line 42
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("noticias_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-        echo "\">
-            Edit
-        </a>
-    </li>
-    <li>";
-        // line 46
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
-        echo "</li>
-</ul>
+        echo "\"> Volver atras</a>
+    </div>
 ";
     }
 
@@ -114,6 +87,6 @@ class __TwigTemplate_139192dcaa428baf98dca596bc394a2d57d29eeb4257fcf0ea0f78dfe26
 
     public function getDebugInfo()
     {
-        return array (  99 => 46,  92 => 42,  84 => 37,  74 => 30,  67 => 26,  60 => 22,  53 => 18,  46 => 14,  39 => 10,  31 => 4,  28 => 3,);
+        return array (  72 => 29,  62 => 22,  52 => 17,  45 => 13,  37 => 8,  31 => 4,  28 => 3,);
     }
 }

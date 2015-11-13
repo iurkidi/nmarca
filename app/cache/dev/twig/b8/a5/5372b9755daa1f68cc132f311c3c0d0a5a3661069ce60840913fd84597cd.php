@@ -7,16 +7,16 @@ class __TwigTemplate_b8a55372b9755daa1f68cc132f311c3c0d0a5a3661069ce60840913fd84
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("uniMarcaBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'central' => array($this, 'block_central'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "uniMarcaBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -25,96 +25,87 @@ class __TwigTemplate_b8a55372b9755daa1f68cc132f311c3c0d0a5a3661069ce60840913fd84
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>noticias list</h1>
-
-    <table class=\"records_list\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titulo</th>
-                <th>Contenido</th>
-                <th>Foto</th>
-                <th>Autor</th>
-                <th>Fechapub</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        echo "                
         ";
-        // line 19
+        // line 5
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 20
-            echo "            <tr>
-                <td><a href=\"";
-            // line 21
+            echo "                  
+            
+            <div class=\"";
+            // line 7
+            echo twig_escape_filter($this->env, ("col" . $this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index")), "html", null, true);
+            echo "\">                                 
+                <h2><a href=\"";
+            // line 8
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("noticias_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-            echo "</a></td>
-                <td>";
-            // line 22
+            echo "\">
+                           ";
+            // line 9
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 23
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "contenido"), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 24
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "foto"), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "autor"), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 26
-            if ($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fechaPub")) {
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fechaPub"), "Y-m-d H:i:s"), "html", null, true);
-            }
-            echo "</td>
-                <td>
-                <ul>
-                    <li>
+            echo "
+                    </a></h2>                   
+                   <p> ";
+            // line 11
+            echo twig_escape_filter($this->env, twig_truncate_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "contenido"), 100), "html", null, true);
+            echo "  </p>
+                   <br> <img src=\"";
+            // line 12
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/unimarca/img/" . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "foto")) . "")), "html", null, true);
+            echo "\"/>             
+                   <ul>
+                    ";
+            // line 17
+            echo "                    <li>
                         <a href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("noticias_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 33
+            // line 18
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("noticias_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Edit</a>
                     </li>
-                </ul>
-                </td>
-            </tr>
+                </ul> 
+            </div>
+            
         ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
-        echo "        </tbody>
-    </table>
+        // line 24
+        echo "        
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 44
+        <div class=\"LineaFormulario\"></div>                
+                        <a href=\"";
+        // line 27
         echo $this->env->getExtension('routing')->getPath("noticias_new");
-        echo "\">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    ";
+        echo "\"> Create a new entry</a>                             
+        </div>
+    
+";
     }
 
     public function getTemplateName()
@@ -129,6 +120,6 @@ class __TwigTemplate_b8a55372b9755daa1f68cc132f311c3c0d0a5a3661069ce60840913fd84
 
     public function getDebugInfo()
     {
-        return array (  111 => 44,  104 => 39,  92 => 33,  86 => 30,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  55 => 21,  52 => 20,  48 => 19,  31 => 4,  28 => 3,);
+        return array (  104 => 27,  99 => 24,  79 => 18,  76 => 17,  71 => 12,  67 => 11,  62 => 9,  58 => 8,  54 => 7,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

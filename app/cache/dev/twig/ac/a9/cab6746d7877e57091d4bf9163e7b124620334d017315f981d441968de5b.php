@@ -7,16 +7,16 @@ class __TwigTemplate_aca9cab6746d7877e57091d4bf9163e7b124620334d017315f981d44196
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("uniMarcaBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'central' => array($this, 'block_central'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "uniMarcaBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -25,10 +25,10 @@ class __TwigTemplate_aca9cab6746d7877e57091d4bf9163e7b124620334d017315f981d44196
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>noticias creation</h1>
+        echo "    <h1>noticias creation</h1>
 
     ";
         // line 6
@@ -41,7 +41,7 @@ class __TwigTemplate_aca9cab6746d7877e57091d4bf9163e7b124620334d017315f981d44196
         // line 10
         echo $this->env->getExtension('routing')->getPath("noticias");
         echo "\">
-            Back to the list
+            Volver atras
         </a>
     </li>
 </ul>

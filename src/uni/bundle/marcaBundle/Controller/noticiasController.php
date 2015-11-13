@@ -101,11 +101,8 @@ class noticiasController extends Controller
             throw $this->createNotFoundException('Unable to find noticias entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'entity'      => $entity           
         ));
     }
 
