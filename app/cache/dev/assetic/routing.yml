@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/itziar/symfony2/marca/app/config/routing_dev.yml

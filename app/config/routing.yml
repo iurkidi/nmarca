@@ -1,0 +1,4 @@
+uni_marca:
+    resource: "@uniMarcaBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,7 @@
+uni_marca_noticias:
+    resource: "@uniMarcaBundle/Resources/config/routing/noticias.yml"
+    prefix:   /noticias
+
+uni_marca_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: uniMarcaBundle:Default:index }
