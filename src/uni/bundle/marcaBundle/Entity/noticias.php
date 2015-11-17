@@ -4,6 +4,7 @@ namespace uni\bundle\marcaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * noticias
  *
