@@ -15,6 +15,16 @@ use uni\bundle\marcaBundle\Form\noticiasType;
 class noticiasController extends Controller
 {
 
+    
+     /**
+     * Funcion para buscar por autor (buscarautor).
+     *
+     */
+    public function buscarAutorAction()
+    {
+        return $this->render('uniMarcaBundle:noticias:buscarAutor.html.twig');
+    }
+    
     /**
      * Lists all noticias entities.
      *

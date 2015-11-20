@@ -28,3 +28,11 @@ noticias_delete:
     path:     /{id}/delete
     defaults: { _controller: "uniMarcaBundle:noticias:delete" }
     requirements: { _method: post|delete }
+
+noticias_buscar_autor:
+    path:     /buscarautor
+    defaults: { _controller: "uniMarcaBundle:noticias:buscarAutor" }
+    
+noticias_responder_autor:
+    path:     /responderautor
+    defaults: { _controller: "uniMarcaBundle:noticias:responderAutor" }    

@@ -1,0 +1,14 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+                
+        <form action="{{path('noticias_responder_autor')}}" method="POST">
+             <div class="LineaFormulario">      
+                    Buscar autor:
+                    <input type="text" name="autor" value="Autor a buscar">
+                    <input type="submit" value="Buscar">
+             </div>
+        </form>
+        
+    
+{% endblock %}
