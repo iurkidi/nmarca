@@ -67,10 +67,10 @@ class noticiasController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         //NOMBRE DEL CAMPO DE BBDD
-        $entities = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
+        $entity = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
 
         return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
-            'entity' => $entities,
+            'entity' => $entity,
             'titulo' => $tit
         ));
     }
