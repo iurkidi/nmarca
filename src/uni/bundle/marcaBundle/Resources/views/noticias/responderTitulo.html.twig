@@ -1,0 +1,26 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+ 
+    <div class="detalleNot">
+        <div class="LineaFormulario"></div>
+
+       <h2>Este es el autor del titulo "{{titulo}}":</h2>
+
+        <div class="LineaFormulario"></div>
+
+        <div class="LineaFormulario">
+            <p class="izquierda separarIzq20">{{entity.autor}} {{ entity.fechaPub|date('Y/m/d') }}</p>
+        </div>   
+        <h2>El articulo fue publicado el:</h2>
+        <div class="LineaFormulario">
+             <p class="izquierda separarIzq20">{{ entity.fechaPub|date('Y/m/d') }}</p>
+        </div>
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
+
+        <div class="LineaFormulario">
+            <a href="{{path('noticias_buscar_titulo' )}}"> Volver atras</a>
+        </div>
+    </div>
+{% endblock %}

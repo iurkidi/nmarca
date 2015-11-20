@@ -16,13 +16,63 @@ class noticiasController extends Controller
 {
 
     
-     /**
+    /**
      * Funcion para buscar por autor (buscarautor).
      *
      */
     public function buscarAutorAction()
     {
         return $this->render('uniMarcaBundle:noticias:buscarAutor.html.twig');
+    }
+    
+    /**
+     * Funcion para sacar las noticias del autor buscado.
+     *
+     */
+    public function responderAutorAction()
+    {
+        $nom= $_POST['autor']; // Coger variables usando php clásico.
+        //$nom= $request->request->get('autor'); // Modo symfony2
+         
+        $em = $this->getDoctrine()->getManager();
+
+        //$entities = $em->getRepository('uniMarcaBundle:noticias')->  findBy(array('autor'=>$nom));
+        //NOMBRE DEL CAMPO DE BBDD
+        $entities = $em->getRepository('uniMarcaBundle:noticias')->  findByAutor($nom);
+
+        return $this->render('uniMarcaBundle:noticias:responderAutor.html.twig', array(
+            'entities' => $entities,
+            'autor' => $nom
+        ));
+    }
+    
+    /**
+     * Funcion para buscar por titulo
+     *
+     */
+    public function buscartituloAction()
+    {
+        return $this->render('uniMarcaBundle:noticias:buscarTitulo.html.twig');
+    }
+    
+    /**
+     * Funcion para sacar las noticias del titulo buscado.
+     *
+     */
+    public function responderTituloAction()
+    {
+        $tit= $_POST['titulo']; // Coger variables usando php clásico.
+        //$nom= $request->request->get('autor'); // Modo symfony2
+         
+        $em = $this->getDoctrine()->getManager();
+        
+        //NOMBRE DEL CAMPO DE BBDD
+        $entities = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
+
+        return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
+            'entity' => $entities,
+            'titulo' => $tit
+        ));
     }
     
     /**

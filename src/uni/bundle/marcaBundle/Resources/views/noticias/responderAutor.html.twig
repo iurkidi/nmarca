@@ -1,0 +1,33 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+                
+                  
+            <h2>Estas son las noticias del autor "{{autor}}":</h2>
+            
+            {% for entity in entities %}                  
+            
+            <div class="{{'col'~ loop.index}}">        
+                {% if loop.index <= "4" %}
+                <h2><a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                    </a></h2>                   
+                   <p> {{ entity.contenido | truncate (100)}}  </p>
+                   <br> <img src="{{ asset('bundles/unimarca/img/'~ entity.foto  ~ '') }}"/>                              
+                   {% elseif loop.index > "4" %}
+                       <div class="col5">
+                           <a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                            </a>  
+                           <p> {{ entity.contenido | truncate (50)}}  </p>
+                       </div>    
+                    {%endif%}
+            </div>
+            
+            {% endfor %}
+                         
+             <div class="LineaFormulario">
+                    <a href="{{ path('noticias_buscar_autor') }}">Volver atras</a>
+             </div>
+    
+{% endblock %}

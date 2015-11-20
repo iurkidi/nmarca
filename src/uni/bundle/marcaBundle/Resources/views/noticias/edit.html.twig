@@ -9,9 +9,12 @@
     {{ form_errors(edit_form) }}
 
     <div class="LineaFormulario">
-        {{ form_label(edit_form.titulo, {'attr': {'class': 'task_field'}}) }}
+        {#{{ form_label(edit_form.titulo, {'attr': {'class': 'task_field'}}) }}#}
         {#{{ form_errors(edit_form.titulo) }}#}
-        {{ form_widget(edit_form.titulo, {'attr': {'class': 'task_field'}}) }}       
+       {# {{ form_widget(edit_form.titulo, {'attr': {'class': 'task_field'}}) }} #}      
+       {{ form_label(edit_form.titulo) }}
+        {#{{ form_errors(edit_form.titulo) }}#}
+       {{ form_widget(edit_form.titulo) }}
     </div>
 
     <div class="LineaFormulario">
