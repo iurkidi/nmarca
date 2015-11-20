@@ -66,12 +66,16 @@ class noticiasController extends Controller
          
         $em = $this->getDoctrine()->getManager();
         
-        //NOMBRE DEL CAMPO DE BBDD
         $entity = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
 
-        return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
-            'entity' => $entity,
-            'titulo' => $tit
+        //PARA MOSTRAR LOS DATOS EN RESPONDERTITULO.HTML (NUEVA PAGINA CREADA) MOSTRANDO DATOS SUELTOS DE LA NOTICIAS
+//        return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
+//            'entity' => $entity,
+//            'titulo' => $tit
+//        ));
+        //REDIRIGIENDO A SHOW.HTML (YA EXISTE) MOSTRANDO EL DETALLE COMPLETO DE LA NOTICIA
+        return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
+            'entity' => $entity            
         ));
     }
     
