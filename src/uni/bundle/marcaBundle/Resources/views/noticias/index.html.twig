@@ -21,8 +21,9 @@
                 </ul> #}                                      
             </div>
             {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
-                   {% elseif loop.index > "4" %}
+                   {% elseif loop.index > "4" %}                         
                        <div class="col5 textoizq">
+                            <br>
                            <a href="{{path('noticias_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                             </a>  
@@ -33,7 +34,7 @@
         {% endfor %}
         
 
-        <div class="LineaFormulario"></div>                
+        <div class="LineaFormulario">               
                         <a href="{{ path('noticias_new') }}"> Create a new entry</a>                             
         </div>
     
