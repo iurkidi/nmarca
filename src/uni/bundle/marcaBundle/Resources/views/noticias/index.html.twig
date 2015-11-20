@@ -4,20 +4,31 @@
                 
         {% for entity in entities %}                  
             
-            <div class="{{'col'~ loop.index}}">                                 
+            <div class="{{'col'~ loop.index}}">        
+                {% if loop.index <= "4" %}
                 <h2><a href="{{path('noticias_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                     </a></h2>                   
                    <p> {{ entity.contenido | truncate (100)}}  </p>
                    <br> <img src="{{ asset('bundles/unimarca/img/'~ entity.foto  ~ '') }}"/>             
-                   <ul>
-                    {#<li>
+                   {#<ul>
+                    <li>
                         <a href="{{ path('noticias_new', { 'id': entity.id }) }}"> New</a>
-                    </li>#}
+                    </li>
                     <li>
                         <a href="{{ path('noticias_edit', { 'id': entity.id }) }}">Edit</a>
                     </li>
-                </ul> 
+                </ul> #}
+                   
+                   {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
+                   {% elseif loop.index > "4" %}
+                       <div class="col5">
+                           <a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                            </a>  
+                           <p> {{ entity.contenido | truncate (50)}}  </p>
+                       </div>    
+                    {%endif%}
             </div>
             
         {% endfor %}

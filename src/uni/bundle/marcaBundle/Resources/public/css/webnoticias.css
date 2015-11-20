@@ -210,6 +210,21 @@ ul#menu-horizontal li:hover ul{
     margin-bottom: 0;
     padding: 0;
 }
+.col5{
+    background-color: #F2F2F2;
+    position: relative;
+    /*float:left;
+    clear:right;*/
+    width: 50%;
+    /*height: 25%;*/
+    overflow: auto;
+    display: block;
+/*    margin-left: 500px;350*/
+/*    margin-right: 250px;*/
+    margin-bottom: 0;
+    padding: 0;
+    align: center;
+}
 
 .detalleNot{
     background-color: #F2F2F2;
