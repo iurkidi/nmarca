@@ -4,8 +4,8 @@
                 
         {% for entity in entities %}                  
             
-            <div class="{{'col'~ loop.index}}">        
-                {% if loop.index <= "4" %}
+            {% if loop.index <= "4" %}
+            <div class="{{'col'~ loop.index}}">                        
                 <h2><a href="{{path('noticias_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                     </a></h2>                   
@@ -18,18 +18,17 @@
                     <li>
                         <a href="{{ path('noticias_edit', { 'id': entity.id }) }}">Edit</a>
                     </li>
-                </ul> #}
-                   
-                   {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
+                </ul> #}                                      
+            </div>
+            {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
                    {% elseif loop.index > "4" %}
-                       <div class="col5">
+                       <div class="col5 textoizq">
                            <a href="{{path('noticias_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                             </a>  
-                           <p> {{ entity.contenido | truncate (50)}}  </p>
+                           {{ entity.contenido | truncate (50)}}
                        </div>    
                     {%endif%}
-            </div>
             
         {% endfor %}
         

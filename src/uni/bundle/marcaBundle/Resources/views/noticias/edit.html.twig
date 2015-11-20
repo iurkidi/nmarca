@@ -28,15 +28,13 @@
     </div>
 
 {{ form_end(edit_form) }}
+{{ form(delete_form) }}
     
     {#{{ form_widget(form.task, {'attr': {'class': 'task_field'}}) }}#}
 
-        <ul">
-            <li>
+        <div class="LineaFormulario">
                 <a href="{{ path('noticias') }}">
                     Volver atras
                 </a>
-            </li>
-            <li>{{ form(delete_form) }}</li>
-        </ul>
+        </div>
 {% endblock %}
