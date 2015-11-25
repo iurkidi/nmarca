@@ -36,7 +36,7 @@ noticias_buscar_autor:
 noticias_responder_autor:
     path:     /responderautor
     defaults: { _controller: "uniMarcaBundle:noticias:responderAutor" }    
-    
+    requirements: { _method: post|put }
     
 noticias_buscar_titulo:
     path:     /buscartitulo
@@ -45,3 +45,4 @@ noticias_buscar_titulo:
 noticias_responder_titulo:
     path:     /respondertitulo
     defaults: { _controller: "uniMarcaBundle:noticias:responderTitulo" } 
+    requirements: { _method: post|put }

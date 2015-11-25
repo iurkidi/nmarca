@@ -29,10 +29,10 @@ class noticiasController extends Controller
      * Funcion para sacar las noticias del autor buscado.
      *
      */
-    public function responderAutorAction()
+    public function responderAutorAction(Request $res)
     {
-        $nom= $_POST['autor']; // Coger variables usando php clásico.
-        //$nom= $request->request->get('autor'); // Modo symfony2
+        //$nom= $_POST['autor']; // Coger variables usando php clásico.
+        $nom= $res->request->get('autor'); // Modo symfony2
          
         $em = $this->getDoctrine()->getManager();
 
@@ -56,26 +56,48 @@ class noticiasController extends Controller
     }
     
     /**
-     * Funcion para sacar las noticias del titulo buscado.
+     * Funcion para sacar las noticias del titulo buscado. 
+     * El titulo a buscar debe ser exacto. El metodo de Abajo busca por like
      *
      */
-    public function responderTituloAction()
-    {
-        $tit= $_POST['titulo']; // Coger variables usando php clásico.
-        //$nom= $request->request->get('autor'); // Modo symfony2
+//    public function responderTituloAction()
+//    {
+//        $tit= $_POST['titulo']; // Coger variables usando php clásico
+//         
+//        $em = $this->getDoctrine()->getManager();
+//        
+//        $entity = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
+//
+//        //PARA MOSTRAR LOS DATOS EN RESPONDERTITULO.HTML (NUEVA PAGINA CREADA) MOSTRANDO DATOS SUELTOS DE LA NOTICIAS
+////        return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
+////            'entity' => $entity,
+////            'titulo' => $tit
+////        ));
+//        //REDIRIGIENDO A SHOW.HTML (YA EXISTE) MOSTRANDO EL DETALLE COMPLETO DE LA NOTICIA
+//        return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
+//            'entity' => $entity            
+//        ));
+//    }
+    
+     /**
+     * Funcion para sacar las noticias del titulo buscado. BUSQUEDA POR LIKE.
+     *
+     */
+    public function responderTituloAction(Request $res)
+    {       
+        $tit= $res->request->get('titulo'); // Modo symfony2
          
         $em = $this->getDoctrine()->getManager();
         
-        $entity = $em->getRepository('uniMarcaBundle:noticias')->  findOneBy(array('titulo' => $tit));
-
-        //PARA MOSTRAR LOS DATOS EN RESPONDERTITULO.HTML (NUEVA PAGINA CREADA) MOSTRANDO DATOS SUELTOS DE LA NOTICIAS
-//        return $this->render('uniMarcaBundle:noticias:responderTitulo.html.twig', array(
-//            'entity' => $entity,
-//            'titulo' => $tit
-//        ));
-        //REDIRIGIENDO A SHOW.HTML (YA EXISTE) MOSTRANDO EL DETALLE COMPLETO DE LA NOTICIA
-        return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
-            'entity' => $entity            
+        $dql = "select n from uniMarcaBundle:noticias n where n.titulo like :titulo";
+        $query = $em->createQuery($dql);
+        $query->setParameter('titulo', '%'.$tit.'%');
+        $noticias = $query->getResult();
+        //echo ($dql);        
+        //CON LA BUSQUEDA POR LIKE, SE CREA RESPONDERTITULO2 CON CODIGO COPIADO DE INDEX
+        return $this->render('uniMarcaBundle:noticias:responderTitulo2.html.twig', array(
+            'tabla' => $noticias,
+            'titulo' => $tit
         ));
     }
     

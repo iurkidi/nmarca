@@ -1,11 +1,14 @@
 {% extends 'uniMarcaBundle::layout.html.twig' %}
 
 {% block central %}
- 
-        <div class="detalleNot">
-            <div class="LineaFormulario"></div>
+    
+    <div class="LineaFormulario"></div>
 
-           <h2>Este es el autor del titulo "{{titulo}}":</h2>
+    <h2>Listado de noticias del titulo "{{titulo}}":</h2>
+ 
+    {%for entity in tabla%}
+        <div class="detalleNot">
+        
 
             <div class="LineaFormulario"></div>
 
@@ -20,5 +23,6 @@
                 <a href="{{path('noticias_buscar_titulo' )}}"> Volver atras</a>
             </div>
         </div>
+    {%endfor%}
     
 {% endblock %}
