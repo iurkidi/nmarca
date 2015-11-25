@@ -99,7 +99,7 @@ body{
 
 #menu-horizontal {
     /*width:100%;*/
-    margin:0 650px;/*500*/
+    margin:0 550px;/*500*/
 }
 
 ul#menu-horizontal li {
@@ -170,7 +170,7 @@ ul#menu-horizontal li:hover ul{
     height: 25%;
     overflow: auto;
     display: block;
-    margin-left: 500px;/*350*/
+    margin-left: 480px;/*350*/
 }
 
 .col2{
@@ -195,7 +195,7 @@ ul#menu-horizontal li:hover ul{
     overflow: auto;
     display: block;
     clear: both;
-    margin-left: 500px;/*350*/
+    margin-left: 480px;/*350*/
 } 
 .col4{
     background-color: #F2F2F2;
@@ -219,7 +219,7 @@ ul#menu-horizontal li:hover ul{
     /*height: 25%;*/
     overflow: auto;
     display: block;
-    margin-left: 500px;/*350*/
+    margin-left: 480px;/*350*/
 /*    margin-right: 250px;*/
     margin-bottom: 0;
     padding: 0;

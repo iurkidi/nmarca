@@ -7,22 +7,30 @@
     <h2>Listado de noticias del titulo "{{titulo}}":</h2>
  
     {%for entity in tabla%}
-        <div class="detalleNot">
-        
-
-            <div class="LineaFormulario"></div>
-
-            <div class="LineaFormulario">
-                <p class="izquierda separarIzq20">{{entity.autor}}. Fue publicado el {{ entity.fechaPub|date('Y/m/d') }}</p>
-            </div>   
-
-            <div class="LineaFormulario"></div>
-            <div class="LineaFormulario"></div>
-
-            <div class="LineaFormulario">
-                <a href="{{path('noticias_buscar_titulo' )}}"> Volver atras</a>
+                               
+          {% if loop.index <= "4" %}
+            <div class="{{'col'~ loop.index}}">                        
+                <h2><a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                    </a></h2>                   
+                   <p> {{ entity.contenido | truncate (100)}}  </p>
+                   <br> <img src="{{ asset('bundles/unimarca/img/'~ entity.foto  ~ '') }}"/>                                                                   
             </div>
-        </div>
+            {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
+                   {% elseif loop.index > "4" %}                         
+                       <div class="col5 textoizq">
+                            <br>
+                           <a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                            </a>  
+                           {{ entity.contenido | truncate (50)}}
+                       </div>    
+                    {%endif%}  
+            
     {%endfor%}
+    
+        <div class="LineaFormulario">
+                <a href="{{path('noticias_buscar_titulo' )}}"> Volver atras</a>
+        </div>
     
 {% endblock %}

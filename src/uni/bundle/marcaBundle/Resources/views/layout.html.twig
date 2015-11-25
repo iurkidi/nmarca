@@ -7,6 +7,7 @@
             {% block menuSup %}
                 
              <ul id="menu-horizontal">
+                <li><a href="{{path('noticias')}}" title="Texto">INICIO</a>
                 <li><a href="#" title="Texto">Futbol</a></li>
                 <li><a href="#" title="Texto">Motor</a></li>
                 <li><a href="#" title="Texto">Tenis</a>
@@ -18,6 +19,12 @@
                 <li><a href="#" title="Texto">Baloncesto</a></li>
                 {#<li><a href="{{path('uni_web_noticias_about')}}" title="Texto">ABOUT</a></li>#}
                 <li><a href="#" title="Texto">Herri kirolak</a></li>
+                <li><a href="#" title="Texto">BUSCAR</a>
+                    <ul>
+                        <li><a href="{{path('noticias_buscar_autor')}}" title="Texto">Por autor</a></li>
+                        <li><a href="{{path('noticias_buscar_titulo')}}" title="Texto">Por título</a></li>
+                    </ul>
+                </li>
              </ul>
              
             {% endblock %}
