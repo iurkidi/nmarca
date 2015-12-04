@@ -57,6 +57,15 @@ class noticias
      */
     private $fechaPub;
 
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="categorias", inversedBy="noticiass", cascade={"remove"})
+    * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id")
+    */
+    protected $categoria;
+    
+    
+    
 
     /**
      * Get id
@@ -182,4 +191,28 @@ class noticias
     {
         return $this->fechaPub;
     }
+
+    /**
+     * Set categoria
+     *
+     * @param \uni\bundle\marcaBundle\Entity\categorias $categoria
+     * @return noticias
+     */
+    public function setCategoria(\uni\bundle\marcaBundle\Entity\categorias $categoria = null)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return \uni\bundle\marcaBundle\Entity\categorias 
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+        
 }

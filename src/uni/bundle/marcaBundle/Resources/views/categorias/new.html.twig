@@ -1,0 +1,15 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+    <h1>categorias creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('categorias') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

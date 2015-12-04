@@ -1,0 +1,49 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+    <h1>categorias</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombrecat</th>
+                <td>{{ entity.nombreCat }}</td>
+            </tr>
+            <tr>
+                <th>Desccat</th>
+                <td>{{ entity.descCat }}</td>
+            </tr>
+                        
+            <tr>
+                <th>Noticias</th>
+                <td>                    
+                    {% for noti in entity.noticiass %}
+                            
+                        <a href="{{ path('noticias_show', { 'id': noti.id }) }}">{{ noti.titulo }}</a> 
+                        <br>
+                            
+                    {% endfor %}
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('categorias') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('categorias_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
