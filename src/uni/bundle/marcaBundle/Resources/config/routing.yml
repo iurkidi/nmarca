@@ -1,3 +1,7 @@
+uni_marca_comentarios:
+    resource: "@uniMarcaBundle/Resources/config/routing/comentarios.yml"
+    prefix:   /comentarios
+
 uni_marca_categorias:
     resource: "@uniMarcaBundle/Resources/config/routing/categorias.yml"
     prefix:   /categorias

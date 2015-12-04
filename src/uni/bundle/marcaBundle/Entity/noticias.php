@@ -3,6 +3,7 @@
 namespace uni\bundle\marcaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
@@ -62,11 +63,9 @@ class noticias
     * @ORM\ManyToOne(targetEntity="categorias", inversedBy="noticiass", cascade={"remove"})
     * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id")
     */
-    protected $categoria;
+    protected $categoria;         
     
     
-    
-
     /**
      * Get id
      *
@@ -214,5 +213,52 @@ class noticias
     {
         return $this->categoria;
     }
+    
+    
+    /**
+    * @ORM\OneToMany(targetEntity="comentarios", mappedBy="noticia", cascade={"remove"})
+    */
+    protected $comentarioss;
+    
+    public function __construct() {
+        $this->comentarioss = new ArrayCollection();
+    }
         
+
+    /**
+     * Add comentarioss
+     *
+     * @param \uni\bundle\marcaBundle\Entity\comentarios $comentarioss
+     * @return noticias
+     */
+    public function addComentarioss(\uni\bundle\marcaBundle\Entity\comentarios $comentarioss)
+    {
+        $this->comentarioss[] = $comentarioss;
+
+        return $this;
+    }
+
+    /**
+     * Remove comentarioss
+     *
+     * @param \uni\bundle\marcaBundle\Entity\comentarios $comentarioss
+     */
+    public function removeComentarioss(\uni\bundle\marcaBundle\Entity\comentarios $comentarioss)
+    {
+        $this->comentarioss->removeElement($comentarioss);
+    }
+
+    /**
+     * Get comentarioss
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarioss()
+    {
+        return $this->comentarioss;
+    }
+    
+    public function __toString() {
+        return $this->titulo;
+    }
 }

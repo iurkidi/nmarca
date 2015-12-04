@@ -1,0 +1,30 @@
+comentarios:
+    path:     /
+    defaults: { _controller: "uniMarcaBundle:comentarios:index" }
+
+comentarios_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniMarcaBundle:comentarios:show" }
+
+comentarios_new:
+    path:     /new
+    defaults: { _controller: "uniMarcaBundle:comentarios:new" }
+
+comentarios_create:
+    path:     /create
+    defaults: { _controller: "uniMarcaBundle:comentarios:create" }
+    requirements: { _method: post }
+
+comentarios_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniMarcaBundle:comentarios:edit" }
+
+comentarios_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniMarcaBundle:comentarios:update" }
+    requirements: { _method: post|put }
+
+comentarios_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniMarcaBundle:comentarios:delete" }
+    requirements: { _method: post|delete }
