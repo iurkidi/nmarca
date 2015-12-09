@@ -9,17 +9,17 @@
                 <h2><a href="{{path('noticias_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                     </a></h2>                      
-                   <p> ({{ entity.categoria.nombreCat }}) {{ entity.contenido | truncate (100)}}  </p>
+                   <p> ({{ entity.categoria.nombreCat | upper }}) {{ entity.contenido | truncate (100)}}  </p>
                    <br> <img src="{{ asset('bundles/unimarca/img/'~ entity.foto  ~ '') }}"/>                                                                     
             </div>
             {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
                    {% elseif loop.index > "4" %}                         
                        <div class="col5 textoizq">
                             <br>
-                           <a href="{{path('noticias_show',{'id': entity.id} )}}">
+                           <a href="{{path('noticias_show',{'id': entity.id} )}}" class="negrita separarIzq20">
                            {{ entity.titulo }}
                             </a>  
-                            <p>({{ entity.categoria.nombreCat }}) {{ entity.contenido | truncate (50)}} </p>
+                            <p class="separarIzq20">({{ entity.categoria.nombreCat | upper }}) {{ entity.contenido | truncate (100)}} </p>
                        </div>    
                     {%endif%}
             

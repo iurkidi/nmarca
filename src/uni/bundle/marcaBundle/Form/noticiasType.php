@@ -21,6 +21,7 @@ class noticiasType extends AbstractType
             ->add('autor')
             ->add('fechaPub')
             ->add('categoria')
+            ->add('comentarioss')
         ;
     }
     

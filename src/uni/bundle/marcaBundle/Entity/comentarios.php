@@ -179,4 +179,8 @@ class comentarios
     {
         return $this->noticia;
     }
+    
+    public function __toString() {
+        return $this->tit;
+    }
 }

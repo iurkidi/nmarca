@@ -213,17 +213,11 @@ ul#menu-horizontal li:hover ul{
 .col5{
     background-color: #F2F2F2;
     position: relative;
-    /*float:left;
-    clear:right;*/
     width: 50%;
-    /*height: 25%;*/
     overflow: auto;
     display: block;
     margin-left: 480px;/*350*/
-/*    margin-right: 250px;*/
     margin-bottom: 0;
-    padding: 0;
-/*    align: center;*/
 }
 
 .detalleNot{

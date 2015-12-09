@@ -15,14 +15,10 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('categorias_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombreCat }}</td>
+                <td><a href="{{ path('categorias_show', { 'id': entity.id }) }}">{{ entity.nombreCat }}</a></td>                
                 <td>{{ entity.descCat }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('categorias_show', { 'id': entity.id }) }}">show</a>
-                    </li>
+                <ul>                    
                     <li>
                         <a href="{{ path('categorias_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
