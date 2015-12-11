@@ -91,17 +91,16 @@ class comentariosController extends Controller
      * Displays a form to create a new comentarios entity PARA UNA NOTICIA CONCRETA.
      *
      */
-//    public function newComNotAction()
-//    {
-//        $entity = new comentarios();
-//        $entity.setNoticia();
-//        $form   = $this->createCreateForm($entity);
+    public function newComNotAction()
+    {
+//        REDIRIGIR DIRECTAMENTE A LA PAINA DE NUEVO Q SE HARA UN FORM A PIñON.
+//        PASAR EL ID DE LA NOTICIA PARA GUARDARLO LUEGO
 //
 //        return $this->render('uniMarcaBundle:comentarios:new.html.twig', array(
 //            'entity' => $entity,
 //            'form'   => $form->createView(),
 //        ));
-//    }
+    }
 
     /**
      * Finds and displays a comentarios entity.
