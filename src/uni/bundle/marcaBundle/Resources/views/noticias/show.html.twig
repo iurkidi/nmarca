@@ -29,7 +29,7 @@
         {% for coment in entity.comentarioss %}
         <div class="LineaFormulario">
                       
-            <p class="negrita">({{ coment.nick }}) {{ coment.tit }}</p>  
+            <p class="negrita">({{ coment.fecha|date('Y-m-d') }} - {{ coment.nick }}) {{ coment.tit }}</p>  
             <p>{{ coment.descrip }}</p>
                
         </div>
