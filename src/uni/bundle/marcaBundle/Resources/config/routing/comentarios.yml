@@ -29,6 +29,11 @@ comentarios_delete:
     defaults: { _controller: "uniMarcaBundle:comentarios:delete" }
     requirements: { _method: post|delete }
     
-comentarios_new_noticias:
+comentarios_new_noticia:
     path:     /{id}/new
-    defaults: { _controller: "uniMarcaBundle:comentarios:newComNot" }
+    defaults: { _controller: "uniMarcaBundle:comentarios:newComNot" }    
+    
+comentarios_save_noticia:
+    path:     /{id}/save_noticia
+    defaults: { _controller: "uniMarcaBundle:comentarios:saveComNot" }
+    requirements: { _method: post|put }

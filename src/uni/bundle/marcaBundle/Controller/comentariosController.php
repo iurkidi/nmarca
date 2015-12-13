@@ -91,15 +91,46 @@ class comentariosController extends Controller
      * Displays a form to create a new comentarios entity PARA UNA NOTICIA CONCRETA.
      *
      */
-    public function newComNotAction()
+    public function newComNotAction($id)
     {
 //        REDIRIGIR DIRECTAMENTE A LA PAINA DE NUEVO Q SE HARA UN FORM A PIñON.
 //        PASAR EL ID DE LA NOTICIA PARA GUARDARLO LUEGO
 //
-//        return $this->render('uniMarcaBundle:comentarios:new.html.twig', array(
-//            'entity' => $entity,
-//            'form'   => $form->createView(),
-//        ));
+        return $this->render('uniMarcaBundle:comentarios:newcomnot.html.twig', array(
+            'idNot' => $id,           
+        ));
+    }
+    
+        /**
+     * Saves a new comentarios entity PARA UNA NOTICIA CONCRETA.
+     *
+     */
+    public function saveComNotAction(Request $request)
+    {
+//        
+        $eComent= new Comentario();
+        $titulo= $request->request->get('titulo');
+        $eComent->setTit($titulo);
+        
+        $nick= $request->request->get('nick');
+        $eComent->setNick($nick);
+        
+        $comentario= $request->request->get('comentario');
+        $eComent->setNick($comentario);
+        
+        $idNot= $request->request->get('idNot');
+        $em1 = $this->getDoctrine()->getManager();
+        $entity = $em1->getRepository('uniMarcaBundle:noticias')->find($idNot);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find noticias entity.');
+        }
+        $eComent->setNoticia($entity);
+        
+        $em2 = $this->getDoctrine()->getEntityManager();
+        $em2->persist($eComent);
+        $em2->flush();
+
+        return $this->redirect($this->generateUrl('noticias_show', array('id' => $idNot)));
     }
 
     /**

@@ -1,0 +1,47 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+    <h1>Nuevo comentario</h1>
+ 
+    <form id="idFormNot" action="comentarios_save_noticia" method="POST">
+        
+    <div class="detalleNot">
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">
+            {#titulo#}
+            <label for="idTituloNot">Titulo:</label>
+            <input type="text" id="idTituloNot" name="titulo"/>           
+        </div>
+
+        <div class="LineaFormulario"></div>       
+
+        <div class="LineaFormulario">
+            {#autor#}
+            <label for="idAutorNot">Nick:</label>
+            <input type="text" id="idAutorNot" name="nick"/>
+        </div>
+
+        <div class="LineaFormulario">
+            {#contenido#}
+            <label for="idContNot">Comentario:</label>
+            <textarea id="idContNot" name="comentario"></textarea>
+        </div>
+
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
+        <input type="hidden" id="idNot" name="idNot" value={{idNot}}/>
+        
+        <div class="LineaFormulario">
+            <input type="submit" name="Guardar" value="Guardar"/>
+        </div>
+        
+        <div class="LineaFormulario">
+            <a href="{{ path('noticias_show', { 'id': idNot }) }}">
+               Volver atras
+           </a>
+        </div>
+    </div>
+    </form>           
+
+{% endblock %}

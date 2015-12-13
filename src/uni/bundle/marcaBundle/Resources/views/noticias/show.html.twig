@@ -40,6 +40,6 @@
 
          <a href="{{path('noticias' )}}"> Volver atras</a>  
          <a href="{{ path('noticias_edit', { 'id': entity.id }) }}">Edit</a>
-         <a href="{{ path('comentarios_new') }}">Añadir comentario</a>
+         <a href="{{ path('comentarios_new_noticia', { 'id': entity.id }) }}">Añadir comentario</a>
     </div>
 {% endblock %}
