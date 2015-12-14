@@ -108,15 +108,17 @@ class comentariosController extends Controller
     public function saveComNotAction(Request $request)
     {
 //        
-        $eComent= new Comentario();
+        $eComent= new comentarios();
         $titulo= $request->request->get('titulo');
         $eComent->setTit($titulo);
         
-        $nick= $request->request->get('nick');
-        $eComent->setNick($nick);
+        $nickcom= $request->request->get('nickcom');
+        $eComent->setNick($nickcom);
         
-        $comentario= $request->request->get('comentario');
-        $eComent->setNick($comentario);
+        $textCom= $request->request->get('textComent');
+        $eComent->setDescrip($textCom);
+        
+        $eComent->setFecha(new \DateTime("now"));
         
         $idNot= $request->request->get('idNot');
         $em1 = $this->getDoctrine()->getManager();
@@ -130,7 +132,10 @@ class comentariosController extends Controller
         $em2->persist($eComent);
         $em2->flush();
 
-        return $this->redirect($this->generateUrl('noticias_show', array('id' => $idNot)));
+//        return $this->redirect($this->generateUrl('noticias_show', array('id' => $idNot)));
+        return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
+            'entity'      => $entity           
+        ));
     }
 
     /**

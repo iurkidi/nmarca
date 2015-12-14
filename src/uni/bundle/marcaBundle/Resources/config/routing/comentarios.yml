@@ -34,6 +34,6 @@ comentarios_new_noticia:
     defaults: { _controller: "uniMarcaBundle:comentarios:newComNot" }    
     
 comentarios_save_noticia:
-    path:     /{id}/save_noticia
+    path:     /save_noticia
     defaults: { _controller: "uniMarcaBundle:comentarios:saveComNot" }
     requirements: { _method: post|put }

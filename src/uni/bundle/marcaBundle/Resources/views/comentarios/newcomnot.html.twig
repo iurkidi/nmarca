@@ -3,7 +3,7 @@
 {% block central %}
     <h1>Nuevo comentario</h1>
  
-    <form id="idFormNot" action="comentarios_save_noticia" method="POST">
+    <form id="idFormNot" action="{{ path('comentarios_save_noticia') }}" method="post">
         
     <div class="detalleNot">
         <div class="LineaFormulario"></div>
@@ -19,13 +19,13 @@
         <div class="LineaFormulario">
             {#autor#}
             <label for="idAutorNot">Nick:</label>
-            <input type="text" id="idAutorNot" name="nick"/>
+            <input type="text" id="idAutorNot" name="nickcom"/>
         </div>
 
         <div class="LineaFormulario">
             {#contenido#}
             <label for="idContNot">Comentario:</label>
-            <textarea id="idContNot" name="comentario"></textarea>
+            <textarea id="idContNot" name="textComent"></textarea>
         </div>
 
         <div class="LineaFormulario"></div>
