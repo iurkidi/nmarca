@@ -106,8 +106,7 @@ class comentariosController extends Controller
      *
      */
     public function saveComNotAction(Request $request)
-    {
-//        
+    {        
         $eComent= new comentarios();
         $titulo= $request->request->get('titulo');
         $eComent->setTit($titulo);
@@ -121,20 +120,19 @@ class comentariosController extends Controller
         $eComent->setFecha(new \DateTime("now"));
         
         $idNot= $request->request->get('idNot');
-        $em1 = $this->getDoctrine()->getManager();
-        $entity = $em1->getRepository('uniMarcaBundle:noticias')->find($idNot);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find noticias entity.');
+        $em = $this->getDoctrine()->getManager();
+        $eNoticia = $em->getRepository('uniMarcaBundle:noticias')->find($idNot);
+        if (!$eNoticia) {
+            throw $this->createNotFoundException('Unable to find noticia relacionada al comentario.');
         }
-        $eComent->setNoticia($entity);
-        
-        $em2 = $this->getDoctrine()->getEntityManager();
-        $em2->persist($eComent);
-        $em2->flush();
+        $eComent->setNoticia($eNoticia);
+                
+        $em->persist($eComent);
+        $em->flush();
 
 //        return $this->redirect($this->generateUrl('noticias_show', array('id' => $idNot)));
         return $this->render('uniMarcaBundle:noticias:show.html.twig', array(
-            'entity'      => $entity           
+            'entity'      => $eNoticia           
         ));
     }
 
