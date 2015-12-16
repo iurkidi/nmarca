@@ -44,13 +44,21 @@ security:
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
-        new:
-            pattern: ^/new
+        
+        conSeguridad:
+            pattern: ^/(comentarios|categorias|noticias)/conSeguridad
             http_basic: ~
+            
+#            SEPARARLO EN TRES
+#        comConSeguridad:
+#            pattern: ^/comentarios/conSeguridad
+#            http_basic: ~
 
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
     # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/new, roles: ROLE_USER }
+        - { path: ^/(comentarios|categorias|noticias)/conSeguridad, roles: ROLE_ADMIN }
+#        OTRA OPCION ES PONER UNO POR CADA
+#        - { path: ^/comentarios/conSeguridad, roles: ROLE_ADMIN }
