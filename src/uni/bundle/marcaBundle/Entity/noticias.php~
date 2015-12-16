@@ -271,37 +271,4 @@ class noticias
         $this->$anuncioss = new ArrayCollection();
     }
           
-
-    /**
-     * Add anuncioss
-     *
-     * @param \uni\bundle\marcaBundle\Entity\anuncios $anuncioss
-     * @return noticias
-     */
-    public function addAnuncioss(\uni\bundle\marcaBundle\Entity\anuncios $anuncioss)
-    {
-        $this->anuncioss[] = $anuncioss;
-
-        return $this;
-    }
-
-    /**
-     * Remove anuncioss
-     *
-     * @param \uni\bundle\marcaBundle\Entity\anuncios $anuncioss
-     */
-    public function removeAnuncioss(\uni\bundle\marcaBundle\Entity\anuncios $anuncioss)
-    {
-        $this->anuncioss->removeElement($anuncioss);
-    }
-
-    /**
-     * Get anuncioss
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAnuncioss()
-    {
-        return $this->anuncioss;
-    }
 }

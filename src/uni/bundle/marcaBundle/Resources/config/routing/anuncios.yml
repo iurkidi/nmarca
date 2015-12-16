@@ -1,0 +1,30 @@
+anuncios:
+    path:     /
+    defaults: { _controller: "uniMarcaBundle:anuncios:index" }
+
+anuncios_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniMarcaBundle:anuncios:show" }
+
+anuncios_new:
+    path:     /new
+    defaults: { _controller: "uniMarcaBundle:anuncios:new" }
+
+anuncios_create:
+    path:     /create
+    defaults: { _controller: "uniMarcaBundle:anuncios:create" }
+    requirements: { _method: post }
+
+anuncios_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniMarcaBundle:anuncios:edit" }
+
+anuncios_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniMarcaBundle:anuncios:update" }
+    requirements: { _method: post|put }
+
+anuncios_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniMarcaBundle:anuncios:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,22 @@
+categorias_new:
+    path:     /new
+    defaults: { _controller: "uniMarcaBundle:categorias:new" }
+
+categorias_create:
+    path:     /create
+    defaults: { _controller: "uniMarcaBundle:categorias:create" }
+    requirements: { _method: post }
+
+categorias_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniMarcaBundle:categorias:edit" }
+
+categorias_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniMarcaBundle:categorias:update" }
+    requirements: { _method: post|put }
+
+categorias_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniMarcaBundle:categorias:delete" }
+    requirements: { _method: post|delete }
