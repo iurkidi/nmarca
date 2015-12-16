@@ -268,7 +268,7 @@ class noticias
     
     public function __construct() {
         $this->comentarioss = new ArrayCollection();
-        $this->$anuncioss = new ArrayCollection();
+        $this->anuncioss = new ArrayCollection();
     }
           
 

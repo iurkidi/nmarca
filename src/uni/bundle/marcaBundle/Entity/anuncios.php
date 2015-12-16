@@ -3,6 +3,7 @@
 namespace uni\bundle\marcaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * anuncios
@@ -165,5 +166,9 @@ class anuncios
     public function getNoticiass()
     {
         return $this->noticiass;
+    }
+    
+    public function __toString() {
+        return $this->nombre;
     }
 }

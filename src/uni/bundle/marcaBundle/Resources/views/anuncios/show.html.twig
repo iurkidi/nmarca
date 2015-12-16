@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'uniMarcaBundle::layout.html.twig' %}
 
-{% block body -%}
+{% block central -%}
     <h1>anuncios</h1>
 
     <table class="record_properties">
@@ -23,6 +23,18 @@
             </tr>
         </tbody>
     </table>
+    
+             <div class="LineaFormulario">
+            <h3 class="izquierda separarIzq20">Noticias esponsorizadas</h3>
+        </div>
+            
+            {% for notic in entity.noticiass %}
+        <div class="LineaFormulario">
+                      
+            <a href="{{ path('noticias_show', { 'id': notic.id }) }}">{{ notic.titulo }}</a>
+               
+        </div>
+        {% endfor %}
 
         <ul class="record_actions">
     <li>
