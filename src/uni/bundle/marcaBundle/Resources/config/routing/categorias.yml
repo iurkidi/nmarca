@@ -6,6 +6,14 @@ categorias_show:
     path:     /{id}/show
     defaults: { _controller: "uniMarcaBundle:categorias:show" }
     
+categorias_buscadorcat:
+    path:     /buscadorCat
+    defaults: { _controller: "uniMarcaBundle:categorias:buscadorCat" }
+    
+categorias_buscadorcat_enc:
+    path:     /buscadorCatEnc
+    defaults: { _controller: "uniMarcaBundle:categorias:buscadorCatEnc" }
+    
 categorias_conSeguridad:
     resource: "@uniMarcaBundle/Resources/config/routing/conSeguridad/categoriasConSeguridad.yml"
     prefix:   /conSeguridad

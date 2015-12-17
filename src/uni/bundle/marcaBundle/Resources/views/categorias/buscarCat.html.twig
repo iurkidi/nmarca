@@ -1,0 +1,33 @@
+{% extends 'uniMarcaBundle::layout.html.twig' %}
+
+{% block central %}
+    
+    {# Ahora viene el javascript #}
+
+    
+    {#//QUITAR ESTE CODIGO E IMPORTAR EL FICHERO JS#}
+<script type="text/javascript">
+function submitform(obj) {
+document.forms["selectCats"].submit();
+}
+</script>
+
+{# Fin del javascript #}
+    
+        <form id="selectCats" action="{{path('categorias_buscadorcat_enc')}}" method="POST">
+             <div class="LineaFormulario">      
+                    Buscar categoria:
+                    
+                   {# <input type="text" name="nombre" value="">#}
+                     <select name="nombre" onchange="submitform(this)">                         
+                     {% for entity in entities %}
+                        <option value="{{ entity.nombreCat }}">{{ entity.nombreCat }}</option>                        
+                     {% endfor %}
+                     </select> 
+                     
+                    {#<input type="submit" value="Buscar">#}
+             </div>
+        </form>
+        
+    
+{% endblock %}

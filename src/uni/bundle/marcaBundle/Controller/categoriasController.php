@@ -221,5 +221,48 @@ class categoriasController extends Controller
             ->getForm()
         ;
     }
+    
+    /**
+     * Funcion para buscar por titulo de categoria
+     *
+     */
+    public function buscadorCatAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('uniMarcaBundle:categorias')->findAll();
+
+        return $this->render('uniMarcaBundle:categorias:buscarCat.html.twig', array(
+            'entities' => $entities,
+        ));
+                
+    }
+    
+       /**
+     * Funcion para sacar las categorias. BUSQUEDA POR LIKE DEL TITULO.
+     *
+     */
+    public function buscadorCatEncAction(Request $res)
+    {       
+        $nom= $res->request->get('nombre'); 
+         
+        $em = $this->getDoctrine()->getManager();
+        
+//        TIENE QUE SER EL NOMBRE EXACTO. DEVUELVE LA BOLSA DE ENTIDADES. EN LA PAGINA DE RESPUESTA SE RECORRERIA CON UN FOR
+//        $dql = $em->getRepository('uniMarcaBundle:noticias')->  findByNomCat($nom);
+        //DEVUELVE SOLO UNA ENTIDAD. TIENE QUE SER EL NOMBRE EXACTO. EN LA PAGINA DE RESPUESTA SE PREGUNTARIA DIRECTAMENTE POR LA ENTIDAD.
+//        $dql = $em->getRepository('uniMarcaBundle:noticias')->  findOneByNomCat($nom);
+        //BUSQUEDA POR LIKE
+        $dql = "select c from uniMarcaBundle:categorias c where c.nombreCat like :nom";
+        $query = $em->createQuery($dql);
+        $query->setParameter('nom', '%'.$nom.'%');
+        $categorias = $query->getResult();
+        
+        //EN LA PAGINA DE RESPUESTA HABRIA QUE PONER UN MENSAJE EN CASO DE QUE NO ENCONTRARA NADA.
+        //EN ESTE CASO SE LLAMA AL INDEX Y NO LO CONTEMPLA
+        return $this->render('uniMarcaBundle:categorias:index.html.twig', array(
+            'entities' => $categorias,            
+        ));
+    }
        
 }
